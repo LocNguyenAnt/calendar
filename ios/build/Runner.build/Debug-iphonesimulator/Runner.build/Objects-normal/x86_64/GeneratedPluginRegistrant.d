@@ -1,0 +1,20 @@
+dependencies: \
+  /Users/macbookpro/Loc/flutter_calendar_project/ios/Runner/GeneratedPluginRegistrant.m \
+  /Users/macbookpro/Loc/flutter_calendar_project/ios/Runner/GeneratedPluginRegistrant.h \
+  /Users/macbookpro/Loc/flutter_calendar_project/build/ios/Debug-iphonesimulator/Flutter.framework/Modules/module.modulemap \
+  /Users/macbookpro/Loc/flutter_calendar_project/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/Flutter.h \
+  /Users/macbookpro/Loc/flutter_calendar_project/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/FlutterAppDelegate.h \
+  /Users/macbookpro/Loc/flutter_calendar_project/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/FlutterMacros.h \
+  /Users/macbookpro/Loc/flutter_calendar_project/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/FlutterPlugin.h \
+  /Users/macbookpro/Loc/flutter_calendar_project/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/FlutterBinaryMessenger.h \
+  /Users/macbookpro/Loc/flutter_calendar_project/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/FlutterChannels.h \
+  /Users/macbookpro/Loc/flutter_calendar_project/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/FlutterCodecs.h \
+  /Users/macbookpro/Loc/flutter_calendar_project/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/FlutterPlatformViews.h \
+  /Users/macbookpro/Loc/flutter_calendar_project/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/FlutterTexture.h \
+  /Users/macbookpro/Loc/flutter_calendar_project/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/FlutterCallbackCache.h \
+  /Users/macbookpro/Loc/flutter_calendar_project/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/FlutterDartProject.h \
+  /Users/macbookpro/Loc/flutter_calendar_project/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/FlutterEngine.h \
+  /Users/macbookpro/Loc/flutter_calendar_project/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/FlutterEngineGroup.h \
+  /Users/macbookpro/Loc/flutter_calendar_project/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/FlutterHeadlessDartRunner.h \
+  /Users/macbookpro/Loc/flutter_calendar_project/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/FlutterPluginAppLifeCycleDelegate.h \
+  /Users/macbookpro/Loc/flutter_calendar_project/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/FlutterViewController.h

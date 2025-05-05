@@ -1,0 +1,13 @@
+# Flutter build artifacts
+/build/
+/.flutter-plugins
+.packages
+.dart_tool/
+
+# Xcode build folders
+ios/Pods/
+/ios/Flutter/Flutter.framework.dSYM/
+
+# Android build
+/android/app/build/
+/*.iml
