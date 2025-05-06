@@ -35,6 +35,20 @@ class Holiday {
       return thisYear;
     }
   }
+
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'day': day,
+        'month': month,
+        'isLunar': isLunar,
+      };
+
+  factory Holiday.fromJson(Map<String, dynamic> json) => Holiday(
+        name: json['name'],
+        day: json['day'],
+        month: json['month'],
+        isLunar: json['isLunar'] ?? false,
+      );
 }
 
 final List<Holiday> vietnameseHolidays = [

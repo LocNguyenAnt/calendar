@@ -1,18 +1,24 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_calendar_project/utils/gan_zhi_utils.dart';
 import 'package:flutter_calendar_project/utils/holidays.dart';
 import 'package:intl/intl.dart';
-import 'dart:async';
+import 'package:lunar/calendar/Lunar.dart';
 
 class CountdownWidget extends StatefulWidget {
   final Holiday holiday;
+  final VoidCallback onDelete;
+  final VoidCallback onEdit;
 
   const CountdownWidget({
-    Key? key,
+    super.key,
     required this.holiday,
-  }) : super(key: key);
+    required this.onDelete,
+    required this.onEdit,
+  });
 
   @override
-  _CountdownWidgetState createState() => _CountdownWidgetState();
+  State<CountdownWidget> createState() => _CountdownWidgetState();
 }
 
 class _CountdownWidgetState extends State<CountdownWidget> {
@@ -29,6 +35,20 @@ class _CountdownWidgetState extends State<CountdownWidget> {
     _formattedDate = DateFormat('dd/MM/yyyy').format(_targetDate);
     _remainingTime = _targetDate.difference(DateTime.now());
     _startCountdown();
+  }
+
+  @override
+  void didUpdateWidget(covariant CountdownWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.holiday != widget.holiday) {
+      _timer.cancel();
+
+      _targetDate = widget.holiday.nextDate();
+      _formattedDate = DateFormat('dd/MM/yyyy').format(_targetDate);
+      _remainingTime = _targetDate.difference(DateTime.now());
+
+      _startCountdown();
+    }
   }
 
   void _startCountdown() {
@@ -67,43 +87,40 @@ class _CountdownWidgetState extends State<CountdownWidget> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
+    final lunarInfo = getFullLunarInfo(_targetDate);
 
     return Card(
       elevation: 6,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      color: theme.cardColor,
-      margin: const EdgeInsets.all(24),
+      margin: const EdgeInsets.symmetric(vertical: 12),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 24.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              widget.holiday.name,
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                color: theme.colorScheme.primary,
-              ),
-            ),
+            Text(widget.holiday.name,
+                style: theme.textTheme.titleLarge
+                    ?.copyWith(fontWeight: FontWeight.bold)),
+            const SizedBox(height: 8),
+            Text('Ngày: $_formattedDate'),
+            const SizedBox(height: 4),
+            Text(lunarInfo),
+            const SizedBox(height: 8),
+            Text('Còn lại: $_countdownTime',
+                style: const TextStyle(color: Colors.redAccent)),
             const SizedBox(height: 16),
-            Text(
-              _formattedDate,
-              style: TextStyle(
-                fontSize: 20,
-                color: theme.textTheme.bodyMedium?.color?.withOpacity(0.8),
-              ),
-            ),
-            const SizedBox(height: 24),
-            Text(
-              _countdownTime,
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                color: isDark ? Colors.orangeAccent : Colors.redAccent,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.edit),
+                  onPressed: widget.onEdit,
+                ),
+                IconButton(
+                  icon: const Icon(Icons.delete),
+                  onPressed: widget.onDelete,
+                ),
+              ],
             ),
           ],
         ),
