@@ -8,7 +8,7 @@
 	<array>
 		<dict>
 			<key>catalogPath</key>
-			<string>/Users/macbookpro/Loc/flutter_calendar_project/ios/Runner/Assets.xcassets</string>
+			<string>/Users/macbookpro/Loc/calendar/ios/Runner/Assets.xcassets</string>
 			<key>objcSymbol</key>
 			<string>ACImageNameLaunchImage</string>
 			<key>relativePath</key>

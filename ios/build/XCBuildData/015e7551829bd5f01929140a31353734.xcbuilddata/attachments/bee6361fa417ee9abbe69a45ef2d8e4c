@@ -1,0 +1,18 @@
+{
+  "" : {
+    "diagnostics" : "/Users/macbookpro/Loc/calendar/ios/build/Runner.build/Debug-iphonesimulator/RunnerTests.build/Objects-normal/x86_64/RunnerTests-master.dia",
+    "emit-module-dependencies" : "/Users/macbookpro/Loc/calendar/ios/build/Runner.build/Debug-iphonesimulator/RunnerTests.build/Objects-normal/x86_64/RunnerTests-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/macbookpro/Loc/calendar/ios/build/Runner.build/Debug-iphonesimulator/RunnerTests.build/Objects-normal/x86_64/RunnerTests-master-emit-module.dia",
+    "swift-dependencies" : "/Users/macbookpro/Loc/calendar/ios/build/Runner.build/Debug-iphonesimulator/RunnerTests.build/Objects-normal/x86_64/RunnerTests-master.swiftdeps"
+  },
+  "/Users/macbookpro/Loc/calendar/ios/RunnerTests/RunnerTests.swift" : {
+    "const-values" : "/Users/macbookpro/Loc/calendar/ios/build/Runner.build/Debug-iphonesimulator/RunnerTests.build/Objects-normal/x86_64/RunnerTests.swiftconstvalues",
+    "dependencies" : "/Users/macbookpro/Loc/calendar/ios/build/Runner.build/Debug-iphonesimulator/RunnerTests.build/Objects-normal/x86_64/RunnerTests.d",
+    "diagnostics" : "/Users/macbookpro/Loc/calendar/ios/build/Runner.build/Debug-iphonesimulator/RunnerTests.build/Objects-normal/x86_64/RunnerTests.dia",
+    "index-unit-output-path" : "/Runner.build/Debug-iphonesimulator/RunnerTests.build/Objects-normal/x86_64/RunnerTests.o",
+    "llvm-bc" : "/Users/macbookpro/Loc/calendar/ios/build/Runner.build/Debug-iphonesimulator/RunnerTests.build/Objects-normal/x86_64/RunnerTests.bc",
+    "object" : "/Users/macbookpro/Loc/calendar/ios/build/Runner.build/Debug-iphonesimulator/RunnerTests.build/Objects-normal/x86_64/RunnerTests.o",
+    "swift-dependencies" : "/Users/macbookpro/Loc/calendar/ios/build/Runner.build/Debug-iphonesimulator/RunnerTests.build/Objects-normal/x86_64/RunnerTests.swiftdeps",
+    "swiftmodule" : "/Users/macbookpro/Loc/calendar/ios/build/Runner.build/Debug-iphonesimulator/RunnerTests.build/Objects-normal/x86_64/RunnerTests~partial.swiftmodule"
+  }
+}
