@@ -16,6 +16,7 @@ class _AddHolidayModalState extends State<AddHolidayModal> {
   final _nameController = TextEditingController();
 
   bool _isLunar = false;
+  bool _isEdit = true;
   int? _selectedDay;
   int? _selectedMonth;
   DateTime? _solarDate;
@@ -73,11 +74,11 @@ class _AddHolidayModalState extends State<AddHolidayModal> {
         _selectedDay != null &&
         _selectedMonth != null) {
       final holiday = Holiday(
-        name: _nameController.text.trim(),
-        day: _selectedDay!,
-        month: _selectedMonth!,
-        isLunar: _isLunar,
-      );
+          name: _nameController.text.trim(),
+          day: _selectedDay!,
+          month: _selectedMonth!,
+          isLunar: _isLunar,
+          isEdit: _isEdit);
       Navigator.pop(context, holiday);
     }
   }

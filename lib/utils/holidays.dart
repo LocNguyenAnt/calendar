@@ -5,12 +5,14 @@ class Holiday {
   final int day;
   final int month;
   final bool isLunar;
+  final bool isEdit;
 
   Holiday(
       {required this.name,
       required this.day,
       required this.month,
-      this.isLunar = false});
+      this.isLunar = false,
+      this.isEdit = true});
 
   DateTime nextDate({DateTime? from}) {
     final now = from ?? DateTime.now();
@@ -41,6 +43,7 @@ class Holiday {
         'day': day,
         'month': month,
         'isLunar': isLunar,
+        'isEdit': isEdit,
       };
 
   factory Holiday.fromJson(Map<String, dynamic> json) => Holiday(
@@ -48,15 +51,23 @@ class Holiday {
         day: json['day'],
         month: json['month'],
         isLunar: json['isLunar'] ?? false,
+        isEdit: json['isEdit'] ?? false,
       );
 }
 
 final List<Holiday> vietnameseHolidays = [
-  Holiday(name: 'Tết Dương lịch', day: 1, month: 1),
-  Holiday(name: 'Giỗ tổ Hùng Vương', day: 10, month: 3),
-  Holiday(name: 'Ngày Giải phóng miền Nam', day: 30, month: 4),
-  Holiday(name: 'Ngày Quốc tế Lao động', day: 1, month: 5),
-  Holiday(name: 'Ngày Quốc khánh', day: 2, month: 9),
-  Holiday(name: 'Tết Nguyên Đán', day: 1, month: 1, isLunar: true),
-  Holiday(name: 'Tết Trung Thu', day: 15, month: 8, isLunar: true),
+  Holiday(name: 'Tết Dương lịch', day: 1, month: 1, isEdit: false),
+  Holiday(
+      name: 'Giỗ tổ Hùng Vương',
+      day: 10,
+      month: 3,
+      isLunar: true,
+      isEdit: false),
+  Holiday(name: 'Ngày Giải phóng miền Nam', day: 30, month: 4, isEdit: false),
+  Holiday(name: 'Ngày Quốc tế Lao động', day: 1, month: 5, isEdit: false),
+  Holiday(name: 'Ngày Quốc khánh', day: 2, month: 9, isEdit: false),
+  Holiday(
+      name: 'Tết Nguyên Đán', day: 1, month: 1, isLunar: true, isEdit: false),
+  Holiday(
+      name: 'Tết Trung Thu', day: 15, month: 8, isLunar: true, isEdit: false),
 ];

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_calendar_project/stores/holidays_store.dart';
 import 'package:flutter_calendar_project/utils/holidays.dart';
 import 'package:flutter_calendar_project/widgets/add_holiday_modal.dart';
@@ -14,11 +15,14 @@ class CalendarScreen extends StatefulWidget {
 class _CalendarScreenState extends State<CalendarScreen> {
   final List<Holiday> _holidays = [];
   final HolidayStorage _storage = HolidayStorage();
+  late ScrollController _scrollController;
+  bool _fabVisible = true;
 
   @override
   void initState() {
     super.initState();
     _loadHolidays();
+    _checkScroll();
   }
 
   Future<void> _loadHolidays() async {
@@ -29,6 +33,19 @@ class _CalendarScreenState extends State<CalendarScreen> {
       _holidays.addAll(saved);
     }
     setState(() {});
+  }
+
+  void _checkScroll() {
+    _scrollController = ScrollController();
+    _scrollController.addListener(() {
+      if (_scrollController.position.userScrollDirection ==
+          ScrollDirection.reverse) {
+        if (_fabVisible) setState(() => _fabVisible = false);
+      } else if (_scrollController.position.userScrollDirection ==
+          ScrollDirection.forward) {
+        if (!_fabVisible) setState(() => _fabVisible = true);
+      }
+    });
   }
 
   void _showAddHolidayModal({Holiday? holiday}) async {
@@ -62,7 +79,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
-        padding: const EdgeInsets.all(16),
+        controller: _scrollController,
+        padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
         itemCount: _holidays.length,
         itemBuilder: (context, index) {
           return CountdownWidget(
@@ -72,9 +90,17 @@ class _CalendarScreenState extends State<CalendarScreen> {
           );
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _showAddHolidayModal,
-        child: const Icon(Icons.add),
+      floatingActionButton: AnimatedSlide(
+        duration: const Duration(milliseconds: 200),
+        offset: _fabVisible ? Offset.zero : const Offset(0, 2),
+        child: AnimatedOpacity(
+          duration: const Duration(milliseconds: 200),
+          opacity: _fabVisible ? 1 : 0,
+          child: FloatingActionButton(
+            onPressed: _showAddHolidayModal,
+            child: const Icon(Icons.add),
+          ),
+        ),
       ),
     );
   }

@@ -25,6 +25,7 @@ class _CountdownWidgetState extends State<CountdownWidget> {
   late Timer _timer;
   late DateTime _targetDate;
   late Duration _remainingTime;
+  late bool _isEdit;
   String _formattedDate = '';
   String _countdownTime = '';
 
@@ -34,6 +35,7 @@ class _CountdownWidgetState extends State<CountdownWidget> {
     _targetDate = widget.holiday.nextDate();
     _formattedDate = DateFormat('dd/MM/yyyy').format(_targetDate);
     _remainingTime = _targetDate.difference(DateTime.now());
+    _isEdit = widget.holiday.isEdit;
     _startCountdown();
   }
 
@@ -109,19 +111,20 @@ class _CountdownWidgetState extends State<CountdownWidget> {
             Text('Còn lại: $_countdownTime',
                 style: const TextStyle(color: Colors.redAccent)),
             const SizedBox(height: 16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.edit),
-                  onPressed: widget.onEdit,
-                ),
-                IconButton(
-                  icon: const Icon(Icons.delete),
-                  onPressed: widget.onDelete,
-                ),
-              ],
-            ),
+            if (_isEdit)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.edit),
+                    onPressed: widget.onEdit,
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.delete),
+                    onPressed: widget.onDelete,
+                  ),
+                ],
+              ),
           ],
         ),
       ),
