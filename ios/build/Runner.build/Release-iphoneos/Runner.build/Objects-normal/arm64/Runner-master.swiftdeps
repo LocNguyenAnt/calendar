@@ -1,8 +1,0 @@
-version: "Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)"
-options: "c928ec5fe47415b72ef7a3695551cafa576caa2b0c005c5efd320196827b87ff"
-build_start_time: [1746419228, 881511000]
-build_end_time: [1746419239, 660636000]
-inputs:
-  "/Users/macbookpro/Loc/flutter_calendar_project/ios/Runner/AppDelegate.swift": [1726161479, 0]
-  ? "/Users/macbookpro/Loc/flutter_calendar_project/ios/build/Runner.build/Release-iphoneos/Runner.build/DerivedSources/GeneratedAssetSymbols.swift"
-  : [1746419228, 599430726]
