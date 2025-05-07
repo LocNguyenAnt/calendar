@@ -6,6 +6,7 @@
 
 # Xcode build folders
 ios/Pods/
+ios/build/
 /ios/Flutter/Flutter.framework.dSYM/
 
 # Android build
