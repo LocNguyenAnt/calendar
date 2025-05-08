@@ -12,3 +12,4 @@ ios/build/
 # Android build
 /android/app/build/
 /*.iml
+.env

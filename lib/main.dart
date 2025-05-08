@@ -1,12 +1,20 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_calendar_project/firebase_options.dart';
 import 'package:flutter_calendar_project/layouts/layout.dart';
 import 'package:flutter_calendar_project/routes/go_router.dart';
 import 'package:flutter_calendar_project/services/app_state.dart';
 import 'package:flutter_calendar_project/theme.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(
     MultiProvider(
       providers: [
@@ -53,18 +61,26 @@ class MainScaffold extends StatelessWidget {
 
     return AppScaffold(
       body: child,
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: currentIndex,
-        onDestinationSelected: (index) {
-          context.go(tabs[index]);
-        },
-        destinations: const [
-          NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-          NavigationDestination(icon: Icon(Icons.favorite), label: 'Favorites'),
-          NavigationDestination(
-              icon: Icon(Icons.calendar_today), label: 'Calendar'),
-        ],
-      ),
+      bottomNavigationBar: _hideBottomNavBar(context)
+          ? null
+          : NavigationBar(
+              selectedIndex: currentIndex,
+              onDestinationSelected: (index) {
+                context.go(tabs[index]);
+              },
+              destinations: const [
+                NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+                NavigationDestination(
+                    icon: Icon(Icons.favorite), label: 'Favorites'),
+                NavigationDestination(
+                    icon: Icon(Icons.calendar_today), label: 'Calendar'),
+              ],
+            ),
     );
   }
+}
+
+bool _hideBottomNavBar(BuildContext context) {
+  final location = GoRouterState.of(context).fullPath;
+  return location == '/login' || location == '/register';
 }

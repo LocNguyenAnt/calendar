@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "389355248388",
+    "project_id": "chat-86f20",
+    "storage_bucket": "chat-86f20.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:389355248388:android:98d2c13c4b4868177e4e51",
+        "android_client_info": {
+          "package_name": "com.example.flutter_calendar_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "389355248388-b4eo7lv5kjencdg8pfl9fbkhigb8gf5b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlxd0D-RZvYtW8xG-ewKFnRRvXI8LkWbg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "389355248388-b4eo7lv5kjencdg8pfl9fbkhigb8gf5b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "389355248388-e5g5jd4a219p32m1nkioqh2k0m8jo3vd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterCalendarProject"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
